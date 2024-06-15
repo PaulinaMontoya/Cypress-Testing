@@ -1,0 +1,18 @@
+{
+  "name": "cypress-testing-by-paulina-montoya",
+  "version": "1.0.0",
+  "description": "Cypress for fun",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Automation-Testing",
+    "Cypress"
+  ],
+  "author": "Paulina Montoya",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.11.0"
+  }
+}
