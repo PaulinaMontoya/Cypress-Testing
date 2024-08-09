@@ -2,11 +2,11 @@ import { LOGIN_PAGE } from '../../fixtures/data';
 
 export class LoginPage {
 
-  elements = {
-    usernameInput: () => cy.get('[data-test="username"]'),
-    passwordInput: () => cy.get('[data-test="password"]'),
-    loginButton: () => cy.get('[data-test="login-button"]'),
-    errorMessage: () => cy.get('[data-test="error"]'),
+  constructor() {
+    this.usernameInput = () => cy.get('[data-test="username"]')
+    this.passwordInput = () => cy.get('[data-test="password"]')
+    this.loginButton = () => cy.get('[data-test="login-button"]')
+    this.errorMessage = () => cy.get('[data-test="error"]')
   }
 
   loginSuccessfully() {
@@ -14,28 +14,53 @@ export class LoginPage {
   }
 
   productsTitleAssertions() {
-    this.elements.productsTitle().contains(LOGIN_PAGE.TITLE);
+    this.productsTitle().contains(LOGIN_PAGE.TITLE);
     cy.url().should('include', '/inventory');
   }
 
   userNameErrorMessage() {
-    this.elements.passwordInput().type(LOGIN_PAGE.CORRECT_PASSWORD);
-    this.elements.loginButton().click();
+    this.passwordInput().type(LOGIN_PAGE.CORRECT_PASSWORD);
+    this.loginButton().click();
   }
 
   userNameErrorMessageAssertion() {
-    this.elements.errorMessage().should('be.visible')
-    this.elements.errorMessage().should('have.text', LOGIN_PAGE.USER_ERROR_MESSAGE)
+    this.errorMessage().should('be.visible')
+    this.errorMessage().should('have.text', LOGIN_PAGE.USER_ERROR_MESSAGE)
   }
 
   passwordErrorMessage() {
-    this.elements.usernameInput().type(LOGIN_PAGE.CORRECT_USER);
-    this.elements.loginButton().click();
+    this.usernameInput().type(LOGIN_PAGE.CORRECT_USER);
+    this.loginButton().click();
   }
 
   passwordErrorMessageAssertion() {
-    this.elements.errorMessage().should('be.visible')
-    this.elements.errorMessage().should('have.text', LOGIN_PAGE.PASSWORD_ERROR_MESSAGE)
+    this.errorMessage().should('be.visible')
+    this.errorMessage().should('have.text', LOGIN_PAGE.PASSWORD_ERROR_MESSAGE)
+  }
+
+  productsTitleAssertions() {
+    this.productsTitle().contains(LOGIN_PAGE.TITLE);
+    cy.url().should('include', '/inventory');
+  }
+
+  userNameErrorMessage() {
+    this.passwordInput().type(LOGIN_PAGE.CORRECT_PASSWORD);
+    this.loginButton().click();
+  }
+
+  userNameErrorMessageAssertion() {
+    this.errorMessage().should('be.visible')
+    this.errorMessage().should('have.text', LOGIN_PAGE.USER_ERROR_MESSAGE)
+  }
+
+  passwordErrorMessage() {
+    this.usernameInput().type(LOGIN_PAGE.CORRECT_USER);
+    this.loginButton().click();
+  }
+
+  passwordErrorMessageAssertion() {
+    this.errorMessage().should('be.visible')
+    this.errorMessage().should('have.text', LOGIN_PAGE.PASSWORD_ERROR_MESSAGE)
   }
 
 }
