@@ -4,7 +4,8 @@
   "description": "Cypress for fun",
   "main": "index.js",
   "scripts": {
-    "run-open": "cypress open"
+    "run-open": "cypress open",
+    "run-headless": "cypress run --browser chrome --spec cypress/e2e"
   },
   "keywords": [
     "Automation-Testing",
